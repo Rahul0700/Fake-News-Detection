@@ -16,7 +16,14 @@ virtual venv
 source venv/bin/activate
 
 pip install -r requirements.txt
+```
+Now move the folder 'nltk_data' inside venv so that the project tree looks like:-
 
+![Project Structure](https://github.com/Rahul0700/Fake-News-Detection/blob/master/Project-Structure.png?raw=true)
+
+###### To run the development server
+------
+```
 export FLASK_APP=app.py
 
 flask run
