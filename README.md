@@ -29,6 +29,6 @@ export FLASK_APP=app.py
 flask run
 ```
 
-[Test Cases.pdf](../blob/master/Test-Cases.pdf) contains sample input for Real and Fake news which could be tested agains in the application
+[Test Cases.pdf](../master/Test-Cases.pdf) contains sample input for Real and Fake news which could be tested agains in the application
 
 ![High Level Design](https://github.com/Rahul0700/Fake-News-Detection/blob/master/High%20level%20design-%20Fake%20News%20Detection.jpg?raw=true)
