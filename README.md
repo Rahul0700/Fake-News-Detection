@@ -11,7 +11,7 @@ git clone https://github.com/Rahul0700/Fake-News-Detection.git
 
 cd Fake-News-Detection
 
-virtual venv
+virtualenv venv
 
 source venv/bin/activate
 
