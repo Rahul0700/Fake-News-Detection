@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Fake News Detection</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="container">
-        <h1 class="mt-5">Fake News Detection</h1>
-        {% if result == "real" %}
-        <div class="my-3 alert alert-success alert-dismissible fade show" role="alert">
-          <strong class="text-uppercase">{{ result }}</strong> The particular news has true content
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <head>
+        <meta charset="UTF-8">
+        <title>Fake News Detection</title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    </head>
+    <body class="bg-info">
+        <div class="container">
+            <h1 class="mt-5 text-white">Fake News Detection</h1>
+            {% if result == "real" %}
+            <div class="my-3 alert alert-success alert-dismissible fade show" role="alert">
+              <strong class="text-uppercase">{{ result }}</strong> The particular news has true content
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% elif result == "fake" %}
+            <div class="my-3 alert alert-danger alert-dismissible fade show" role="alert">
+              <strong class="text-uppercase">{{ result }}</strong> Do not trust this source!
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+            <form class="mt-3 border p-5 rounded shadow-lg bg-white" method="post" action="/predict">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Enter News Title" required>
+                </div>
+                <div class="mb-3">
+                  <label for="author" class="form-label">Author</label>
+                  <input type="text" class="form-control" id="author" name="author" placeholder="Enter News Author" required>
+                </div>
+                <div class="mb-3">
+                  <label for="content" class="form-label">Content</label>
+                  <input type="text" class="form-control" id="content" name="content" placeholder="Enter News Content" required>
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
         </div>
-        {% elif result == "fake" %}
-        <div class="my-3 alert alert-danger alert-dismissible fade show" role="alert">
-          <strong class="text-uppercase">{{ result }}</strong> Do not trust this source!
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endif %}
-        <form class="mt-3 border p-5 rounded shadow-lg" method="post" action="/predict">
-            <div class="mb-3">
-              <label for="title" class="form-label">Title</label>
-              <input type="text" class="form-control" id="title" name="title" placeholder="Enter News Title" required>
-            </div>
-            <div class="mb-3">
-              <label for="author" class="form-label">Author</label>
-              <input type="text" class="form-control" id="author" name="author" placeholder="Enter News Author" required>
-            </div>
-            <div class="mb-3">
-              <label for="content" class="form-label">Content</label>
-              <input type="text" class="form-control" id="content" name="content" placeholder="Enter News Content" required>
-            </div>
-            <button type="submit" class="btn btn-outline-primary">Submit</button>
-        </form>
-    </div>
-</body>
+    </body>
 </html>

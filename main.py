@@ -22,7 +22,3 @@ def get_delay():
     prediction = pipeline.predict(query)
     dic = {1: 'real', 0: 'fake'}
     return render_template('index.html', result=dic[prediction[0]])
-
-
-if __name__ == '__main__':
-    app.run(port=8080, debug=True)
